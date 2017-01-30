@@ -1,7 +1,5 @@
 require_relative "ruby_watson_api/version"
-require "pry"
 require 'pp'
-require "pry-inline"
 require 'openssl'
 require 'open-uri'
 require 'json'
@@ -12,17 +10,18 @@ require "dotenv"
 
 class PersonalityAnalyzer
 
-  attr_accessor :url, :username, :password
+  attr_accessor :url, :username, :password, :input
 
-  def initialize
+  def initialize(input)
     @url = "https://gateway.watsonplatform.net/personality-insights/api"
     @username = ENV["USERNAME"]
-    @password = ENV["PASS"]
+    @password = ENV["PASSWORD"]
+    @input = input
   end   
 
-  def get_response(input)
+  def get_response
     response = Excon.post(@url + "/v3/profile",
-    :body     => input,
+    :body     => @input,
     :headers  => {
       "Content-Type"     => "text/plain",
       "Content-Language" => "en",

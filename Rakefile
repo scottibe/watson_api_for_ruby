@@ -15,6 +15,3 @@ require 'dotenv/tasks'
 task mytask: :dotenv do
     "ruby_watson_api"
 end
-
-# WatsonAPIClient::PersonalityInsights#methods: profile  profile_post
-# instance variables: @credential  @options  @service
