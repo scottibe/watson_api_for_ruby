@@ -13,7 +13,7 @@ class ToneAnalyzer
 
   def initialize(input)
     @url = "https://gateway.watsonplatform.net/tone-analyzer/api"
-    @username = "05902b30-be79-47a7-b309-d8abedf8dbfa"
+    @username = ENV["USER"]
     @password = ENV["PASS"]
     @input = input
   end 
