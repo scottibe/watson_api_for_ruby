@@ -39,8 +39,6 @@ class PersonalityAnalyzer
   end
 end
 
-
-
 #curl version
 # curl -X POST -u "{username}:{password}" --header "Content-Type: application/json" --data-binary @profile.json "https://gateway.watsonplatform.net/personality-insights/api/v3/profile?version=2016-10-20&consumption_preferences=true&raw_scores=true"
 # base_uri "https://gateway.watsonplatform.net/personality-insights/api/v3/consumption_preferences_true/raw_scores_true"
