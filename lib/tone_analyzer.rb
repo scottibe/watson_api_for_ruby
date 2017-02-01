@@ -24,11 +24,8 @@ class ToneAnalyzer
       :headers          => {"Content-Type" => "text/html"},
       :user             => @username,
       :password         => @password)
-    pp JSON.parse(response.body)
+
+    puts response.body
   end
 end
-
-
-
-
 

@@ -23,19 +23,19 @@ class PersonalityAnalyzer
     response = Excon.post(@url + "/v3/profile",
     :body     => @input,
     :headers  => {
-      "Content-Type"     => "text/plain",
-      "Content-Language" => "en",
-      "Accept-Language"  => "en"
+      "Content-Type"            => "text/plain",
+      "Content-Language"        => "en",
+      "Accept-Language"         => "en"
     },
     :query    => {
+      "raw_scores"              => true,
       "consumption_preferences" => true, 
-      "raw_scores" => true,
-      "version" => "10-20-2016" 
+      "version"                 => "10-20-2016" 
     },
-    :user     => @username,
-    :password => @password)
+    :user                       => @username,
+    :password                   => @password)
 
-    pp JSON.parse(response.body)
+    return response.body
   end
 end
 
