@@ -1,14 +1,10 @@
 require_relative "ruby_watson_api/version"
-require 'pp'
-require 'openssl'
-require 'open-uri'
 require 'json'
-require 'rest-client'
 require 'excon'
 require "dotenv"
   Dotenv.load
 
-class PersonalityAnalyzer
+class PersonalityApiCaller
 
   attr_accessor :url, :username, :password, :input
 
@@ -19,7 +15,7 @@ class PersonalityAnalyzer
     @input = input
   end   
 
-  def get_response
+  def get_raw_data
     response = Excon.post(@url + "/v3/profile",
     :body     => @input,
     :headers  => {
@@ -35,10 +31,21 @@ class PersonalityAnalyzer
     :user                       => @username,
     :password                   => @password)
 
-    return response.body
+    response.body
   end
-end
 
-#curl version
-# curl -X POST -u "{username}:{password}" --header "Content-Type: application/json" --data-binary @profile.json "https://gateway.watsonplatform.net/personality-insights/api/v3/profile?version=2016-10-20&consumption_preferences=true&raw_scores=true"
-# base_uri "https://gateway.watsonplatform.net/personality-insights/api/v3/consumption_preferences_true/raw_scores_true"
+  def response
+    name_array = []
+    score_array = []
+    data_object = JSON.parse(get_raw_data, :object_class => OpenStruct)
+    data_object.personality.map do |type|
+      name_array << type.name.downcase
+      name_array.map! do |name|
+        name.gsub(" ", "_")
+      end  
+      score_array << type.percentile
+    end 
+   response = Hash[name_array.zip score_array]                                           
+  end  
+
+end  
