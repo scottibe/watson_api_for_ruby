@@ -8,15 +8,15 @@ class PersonalityAnalysis
                 :self_expression, :stability, :structure, :conservation, :openness_to_change, 
                 :hedonism, :self_enhancement, :self_transcendence
 
-  def initialize(response_hash)
-    response_hash.each do |k, v|
+  def initialize(analysis)
+    analysis.each do |k, v|
       self.send("#{k}=", v)
     end
   end
 
   def self.create(input)
-    response_hash = WatsonApiCaller.new(input).personality_hash
-    final_analysis = PersonalityAnalysis.new(response_hash)
+    analysis = WatsonApiCaller.new(input).scores_to_hash
+    final_analysis = PersonalityAnalysis.new(analysis)
   end
 
 end

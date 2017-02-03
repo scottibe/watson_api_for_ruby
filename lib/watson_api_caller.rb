@@ -34,7 +34,9 @@ class WatsonApiCaller
     response.body
   end
 
-  def personality_hash
+   def scores_to_hash
+    array = []
+    score_array = []
     data_object = JSON.parse(get_data, :object_class => OpenStruct)
     array += [data_object.personality, data_object.needs, data_object.values]
     array.each do |result|
