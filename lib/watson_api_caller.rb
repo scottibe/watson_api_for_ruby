@@ -2,7 +2,6 @@ require_relative "ruby_watson_api/version"
 require 'json'
 require 'excon'
 require "dotenv"
-require 'active_support'
   Dotenv.load
 
 class WatsonApiCaller
