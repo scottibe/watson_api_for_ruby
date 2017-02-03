@@ -6,6 +6,5 @@ gem 'pry-inline'
 gem 'excon'
 gem 'rest-client'
 gem 'dotenv'
-gem 'figaro'
-gem 'openssl'
-gem 'rest-client'
+
+
