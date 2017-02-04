@@ -25,7 +25,14 @@ class ToneAnalyzer
       :user             => @username,
       :password         => @password)
 
-    puts response.body
+    response.body
   end
+
+
+  def response
+      data_object = JSON.parse(get_data, :object_class => OpenStruct)
+  end  
+
+
 end
 
