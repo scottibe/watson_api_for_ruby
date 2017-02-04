@@ -4,7 +4,7 @@ require 'excon'
 require "dotenv"
   Dotenv.load
 
-class WatsonApiCaller
+class PersonalityApiCaller
 
   attr_accessor :url, :username, :password, :input
 
