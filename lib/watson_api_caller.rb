@@ -48,3 +48,7 @@ class WatsonApiCaller
   end
 
 end
+
+#/Users/scottbewick/Development/code/mytext.rtf
+
+

@@ -25,14 +25,54 @@ class ToneAnalyzer
       :user             => @username,
       :password         => @password)
 
-    response.body
+    data = JSON.parse(response.body)
   end
 
 
-  def response
-      data_object = JSON.parse(get_data, :object_class => OpenStruct)
-  end  
+  def scores_to_hash
+    score_array = []
+    data = get_response
+    data["document_tone"]["tone_categories"].each do |x|
+      x.each do |blob|
+        blob.each do |cob|
+          
+            binding.pry
+
+        end 
+      end 
+    end        
+    
+  end
+ 
 
 
 end
 
+# def scores_to_hash
+#     score_array = []
+#     data = get_response
+#     data["document_tone"]["tone_categories"][0]["tones"].each do |tone|
+#       score_array += [tone["score"], tone["tone_name"].downcase.to_sym]
+#     end   
+#     data["document_tone"]["tone_categories"][1]["tones"].each do |tone|
+#       score_array += [tone["score"], tone["tone_name"].downcase.to_sym]
+#     end
+#     data["document_tone"]["tone_categories"][2]["tones"].each do |tone|
+#       score_array += [tone["score"], tone["tone_name"].gsub(" ", "_").downcase.to_sym]
+#     end  
+#     score_hash = Hash[*score_array]
+#     binding.pry
+    
+#   end
+
+
+
+
+
+
+
+#get_response["document_tone"]["tone_categories"]
+
+
+#(File.open("/Users/scottbewick/Development/code/mytext.rtf", "r"))
+#get_response["document_tone"]["tone_categories"]
