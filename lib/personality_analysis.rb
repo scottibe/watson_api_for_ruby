@@ -12,7 +12,7 @@ class PersonalityAnalysis
   def initialize(analysis)
     analysis.each do |k, v|
       self.send("#{k}=", v)
-    end
+    end 
   end
 
   def self.create_analysis(input)
@@ -20,9 +20,9 @@ class PersonalityAnalysis
     final_analysis = PersonalityAnalysis.new(analysis)
   end
 
-  def self.create_twitter_analysis(user_name)
+  def self.create_twitter_analysis(twitter_handle)
     tweeter = TwitterApiCall.new
-    tweet_text = tweeter.user_tweets(user_name)
+    tweet_text = tweeter.user_tweets(twitter_handle)
     analysis = PersonalityApiCaller.new(tweet_text).scores_to_hash
     final_analysis = PersonalityAnalysis.new(analysis) 
   end

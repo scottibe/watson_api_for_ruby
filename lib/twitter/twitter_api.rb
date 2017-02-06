@@ -12,9 +12,9 @@ class TwitterApiCall
     config.access_token_secret = ENV["ACCESS_SECRET"]
   end
 
-  def user_tweets(user_name)
+  def user_tweets(twitter_handle)
     tweets = []
-    twit = @@client.user_timeline(user_name, options = {:count => 200})
+    twit = @@client.user_timeline(twitter_handle, options = {:count => 200})
     twit.each do |tweet|
       tweets << tweet.text 
     end  

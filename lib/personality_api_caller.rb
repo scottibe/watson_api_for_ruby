@@ -10,8 +10,8 @@ class PersonalityApiCaller
 
   def initialize(input)
     @url = "https://gateway.watsonplatform.net/personality-insights/api"
-    @username = ENV["USERNAME"]
-    @password = ENV["PASSWORD"]
+    @username = ENV['USERNAME']
+    @password = ENV['PASSWORD']
     @input = input
   end   
 

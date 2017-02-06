@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Scott Bewick"]
   spec.email         = ["bewick.scott@gmail.com"]
 
-  spec.summary       = %q{A simple ruby wrapper for the Personality Insight and Tone Analyzer IBM Watson API.}
+  spec.summary       = %q{UNFINISHED!! A simple ruby wrapper for the Personality Insight and Tone Analyzer IBM Watson API.}
   spec.homepage      = "https://github.com/scottibe/watson_api_for_ruby"
   spec.license       = "MIT"
 
