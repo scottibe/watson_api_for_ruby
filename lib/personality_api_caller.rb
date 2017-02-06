@@ -42,7 +42,7 @@ class PersonalityApiCaller
     array += [data_object.personality, data_object.needs, data_object.values]
     array.each do |result|
       result.each do |score|
-        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym, score.percentile]
+        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym]
       end 
     end 
     hash = Hash[*score_array]
