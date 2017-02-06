@@ -1,15 +1,56 @@
-# RubyWatsonAPI
+# RubyWrapperWatson
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_watson_api`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is RubyWrapperWatson. A simple Ruby wrapper for IBM's Watson computer system APIs. Specifically, this gives access to the Personality Insights API and the Tone Analyzer API. 
 
-TODO: Delete this and the text above, and describe your gem
+RubyWrapperWatson takes input in two forms. The first is plain text, either in a string or read from a file. The second is a Twitter usoername. If given a username it will analyze the text from the tweets of that user's timeline and return an object with the personality or tone analysis scores. 
+
+## Usage
+
+First, you will need to obtain Watson credentials from: 
+"https://console.ng.bluemix.net/dashboard/apps/"
+
+****Descriptions for what all the scores me for the Personality Insights can be found in hash form in the description.rb file **** NEED TO FIX CREDENTIALS AND DESCRIPTIONS ACCESS
+
+You will need to put those credentials in the .env file and set them to match up with the environemnt variables in the PersonalityAnalysis and ToneAnalysis initialize methods. 
+
+To get the a personality analysis with plain text
+```analysis = PersonalityAnalysis.create_analysis('input_text')
+```
+
+Where input_text is a string of text.
+To analyize from a file with plain text
+```analysis = PersonalityAnalysis.create_analysis(File.open("file.txt", "r"))
+```
+
+The same can be done for Tone Analysis, which analyzes the tone of a particular piece of writing. Simply change PersonalityAnalysis to ToneAnalysis.
+
+To analyze the tweets from a specific twitter user:
+```analysis = PersonalityAnalysis.create_twitter_analysis('twitter_user_name')
+```
+You do not need to include the @ symbol in fron of the user_name.
+
+The same can be done to analyze the tone of the tweets, again, just replace PersoanlityAnalysis with ToneAnalysis. 
+
+To get the raw data back in JSON format from the watson service:
+```data = PersonalityApiCaller.new(text_or_file_input)
+```
+```json_data = data.get_data
+```
+
+to parse this:
+```parsed = JSON.parse(json_data)
+```
+
+Again, the same can be done for the Tone Analysis, simply replace PersonalityApiCaller with ToneApiCaller and get_data with get_response.
+
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby_watson_api'
+gem 'ruby_wrapper_watson'
 ```
 
 And then execute:
@@ -18,17 +59,8 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ruby_watson_api
+    $ gem install ruby_wrapper_watson
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 

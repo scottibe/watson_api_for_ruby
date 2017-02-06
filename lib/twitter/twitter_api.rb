@@ -1,8 +1,5 @@
-require 'pry'
 require 'twitter'
-require 'tweetstream'
 require 'json'
-require 'excon'
 require "dotenv"
 
 class TwitterApiCall
@@ -25,8 +22,4 @@ class TwitterApiCall
   end  
 
 end   
-
- 
-
- 
               

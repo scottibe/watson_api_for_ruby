@@ -6,7 +6,6 @@ five_traits = {
 :agreeableness => "A tendency to be compassionate and cooperative rather than suspicious and antagonistic towards others. It is also a measure of one's trusting and helpful nature, and whether a person is generally well-tempered or not. High agreeableness is often seen as naive or submissive. Low agreeableness personalities are often competitive or challenging people, which can be seen as argumentative or untrustworthy.",
 :neuroticism => "The tendency to experience unpleasant emotions easily, such as anger, anxiety, depression, and vulnerability. Neuroticism also refers to the degree of emotional stability and impulse control and is sometimes referred to by its low pole, 'emotional stability.' A high need for stability manifests as a stable and calm personality, but can be seen as uninspiring and unconcerned. A low need for stability causes a reactive and excitable personality, often very dynamic individuals, but they can be perceived as unstable or insecure"
 }
-puts five_traits[:conscientiousness]
 
 needs = {
 :excitement  => "You Want to get out there and live life, have upbeat emotions, and want to have fun.",
@@ -22,7 +21,7 @@ needs = {
 :challenge => "You Have an urge to achieve, to succeed, and to take on challenges.",
 :structure => "You Exhibit groundedness and a desire to hold things together. They need things to be well organized and under control."
 }
-puts needs[:ideal]
+
 values = {
 :helping => "Like to help people, they show concern for the welfare and interests of others.",
 :tradition => "Emphasize self-restriction, order, and resistance to change.",
@@ -31,7 +30,6 @@ values = {
 :open_to_change_and_excitement => "Emphasize independent action, thought, and feeling, as well as a readiness for new experiences."
 }
 
-puts values[:helping]
 
 #https://en.wikipedia.org/wiki/Big_Five_personality_traits
 #https://www.boundless.com/management/textbooks/boundless-management-textbook/organizational-behavior-5/personality-42/the-big-five-personality-traits-220-3935/

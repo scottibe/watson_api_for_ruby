@@ -1,10 +1,10 @@
-require_relative "ruby_watson_api/version"
+require_relative "ruby_wrapper_watson/version"
 require 'json'
 require 'excon'
 require "dotenv"
   Dotenv.load
 
-class PersonalityApiCaller   #need to add word_count
+class PersonalityApiCaller   
 
   attr_accessor :url, :username, :password, :input
 
@@ -50,7 +50,3 @@ class PersonalityApiCaller   #need to add word_count
   end
 
 end
-
-#/Users/scottbewick/Development/code/mytext.rtf
-
-

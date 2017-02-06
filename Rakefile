@@ -13,5 +13,5 @@ end
 require 'dotenv/tasks'
 
 task mytask: :dotenv do
-    "ruby_watson_api"
+    "ruby_wrapper_watson"
 end

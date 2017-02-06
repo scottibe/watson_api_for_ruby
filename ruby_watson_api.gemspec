@@ -1,27 +1,26 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ruby_watson_api/version'
+require 'ruby_wrapper_watson/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ruby_watson_api"
-  spec.version       = RubyWatsonApi::VERSION
+  spec.name          = "ruby_wrapper_watson"
+  spec.version       = RubyWrapperWatson::VERSION
   spec.authors       = ["Scott Bewick"]
   spec.email         = ["bewick.scott@gmail.com"]
 
   spec.summary       = %q{A simple ruby wrapper for the Personality Insight and Tone Analyzer IBM Watson API.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/scottibe/watson_api_for_ruby"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  # # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # # to allow pushing to a single host or delete this section to allow pushing to any host.
+  # if spec.respond_to?(:metadata)
+  #   spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+  # else
+  #   raise "RubyGems 2.0 or newer is required to protect against " \
+  #     "public gem pushes."
+  # end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -31,8 +30,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "excon"
-  spec.add_dependency "httparty"
-  spec.add_dependency "rest-client"
+  spec.add_dependency "twitter"
+  spec.add_dependency "json"
   spec.add_dependency "dotenv"
 
   spec.add_development_dependency "bundler", "~> 1.13"
