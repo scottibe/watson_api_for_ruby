@@ -62,21 +62,6 @@ You will notice there are more data points in the raw data.
 to find out more about these scores, you can visit:
 "https://console.ng.bluemix.net/dashboard/apps/"
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ruby_wrapper_watson'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruby_wrapper_watson
 
 
 ## Contributing
