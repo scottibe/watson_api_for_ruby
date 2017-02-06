@@ -25,7 +25,7 @@ analysis = PersonalityAnalysis.create_analysis('input_text')
 ```
 This will return an instance of the PersonalityAnalysis class with a score for each of the 22 personality characteristics plus the word count.
 
-The scores are percentiles based on the scores of the 
+The scores are percentiles based on the average scores of the general population. If a score is 90% for a particular characteristic, the author of that text exhibits that characteristic more than 90% of the population.
 
 Where input_text is a string of text.
 To analyize from a file with plain text
