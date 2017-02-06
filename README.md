@@ -14,7 +14,8 @@ First, you will need to obtain Watson credentials from:
 You will need to put those credentials in the .env file and set them to match up with the environemnt variables in the PersonalityAnalysis and ToneAnalysis initialize methods. 
 
 To get the a personality analysis with plain text
-```analysis = PersonalityAnalysis.create_analysis('input_text')
+```
+analysis = PersonalityAnalysis.create_analysis('input_text')
 ```
 
 Where input_text is a string of text.
