@@ -20,26 +20,31 @@ analysis = PersonalityAnalysis.create_analysis('input_text')
 
 Where input_text is a string of text.
 To analyize from a file with plain text
-```analysis = PersonalityAnalysis.create_analysis(File.open("file.txt", "r"))
+```
+analysis = PersonalityAnalysis.create_analysis(File.open("file.txt", "r"))
 ```
 
 The same can be done for Tone Analysis, which analyzes the tone of a particular piece of writing. Simply change PersonalityAnalysis to ToneAnalysis.
 
 To analyze the tweets from a specific twitter user:
-```analysis = PersonalityAnalysis.create_twitter_analysis('twitter_user_name')
+```
+analysis = PersonalityAnalysis.create_twitter_analysis('twitter_user_name')
 ```
 You do not need to include the @ symbol in fron of the user_name.
 
 The same can be done to analyze the tone of the tweets, again, just replace PersoanlityAnalysis with ToneAnalysis. 
 
 To get the raw data back in JSON format from the watson service:
-```data = PersonalityApiCaller.new(text_or_file_input)
 ```
-```json_data = data.get_data
+data = PersonalityApiCaller.new(text_or_file_input)
+```
+```
+json_data = data.get_data
 ```
 
 to parse this:
-```parsed = JSON.parse(json_data)
+```
+parsed = JSON.parse(json_data)
 ```
 
 Again, the same can be done for the Tone Analysis, simply replace PersonalityApiCaller with ToneApiCaller and get_data with get_response.
