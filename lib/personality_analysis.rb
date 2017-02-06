@@ -1,8 +1,9 @@
-require_relative 'watson_api_caller'
+require_relative 'personality_api_caller'
+require_relative 'twitter/twitter_api'
 
 class PersonalityAnalysis
 
-  attr_accessor :agreeableness, :conscientiousness, :extraversion, 
+  attr_accessor :word_count, :agreeableness, :conscientiousness, :extraversion, 
                 :emotional_range, :openness, :challenge, :closeness, :curiosity,
                 :excitement, :harmony, :ideal, :liberty, :love, :practicality,
                 :self_expression, :stability, :structure, :conservation, :openness_to_change, 
@@ -14,9 +15,16 @@ class PersonalityAnalysis
     end
   end
 
-  def self.create(input)
-    analysis = WatsonApiCaller.new(input).scores_to_hash
+  def self.create_analysis(input)
+    analysis = PersonalityApiCaller.new(input).scores_to_hash
     final_analysis = PersonalityAnalysis.new(analysis)
+  end
+
+  def self.create_twitter_analysis(user_name)
+    tweeter = TwitterApiCall.new
+    tweet_text = tweeter.user_tweets(user_name)
+    analysis = PersonalityApiCaller.new(tweet_text).scores_to_hash
+    final_analysis = PersonalityAnalysis.new(analysis) 
   end
 
 end

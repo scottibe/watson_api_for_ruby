@@ -4,7 +4,7 @@ require 'excon'
 require "dotenv"
   Dotenv.load
 
-class PersonalityApiCaller
+class PersonalityApiCaller   #need to add word_count
 
   attr_accessor :url, :username, :password, :input
 
@@ -38,6 +38,7 @@ class PersonalityApiCaller
     array = []
     score_array = []
     data_object = JSON.parse(get_data, :object_class => OpenStruct)
+    count = {:word_count => data_object.word_count}
     array += [data_object.personality, data_object.needs, data_object.values]
     array.each do |result|
       result.each do |score|
@@ -45,6 +46,7 @@ class PersonalityApiCaller
       end 
     end 
     hash = Hash[*score_array]
+    count.merge!(hash)
   end
 
 end

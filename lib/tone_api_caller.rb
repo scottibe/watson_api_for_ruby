@@ -1,10 +1,11 @@
 require 'pp'
 require 'json'
 require 'excon'
-require "dotenv"
+require 'dotenv'
+require_relative './twitter/twitter_api'
   Dotenv.load
 
-class ToneApiCaller
+class ToneApiCaller   #need to add word_count
 
   attr_accessor :url, :username, :password, :input
 
@@ -16,7 +17,7 @@ class ToneApiCaller
   end 
 
   def get_response
-    response = Excon.post(@url + "/v3/tone?version=2016-05-19/&sentences=false",
+    response = Excon.post(@url + "/v3/tone?version=2016-05-19/&sentences=true",
       :body             => @input,
       :headers          => {"Content-Type" => "text/html"},
       :user             => @username,
