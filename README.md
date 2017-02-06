@@ -12,7 +12,8 @@ First, you will need to obtain Watson credentials from:
 Descriptions for what all the scores mean for the Personality Insights can be found in hash form in the description.rb file  
 
 Currently you must CD into the Gem directory and type: 
-```rake console
+```
+rake console
 ```
 to use this gem.
 

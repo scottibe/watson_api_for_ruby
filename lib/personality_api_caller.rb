@@ -46,7 +46,10 @@ class PersonalityApiCaller
       end 
     end 
     hash = Hash[*score_array]
-    count.merge!(hash)
+    hash = hash.each_pair do |k, v|
+      hash[k] = (v * 100).to_i
+    end  
+    hash = count.merge!(hash)
   end
 
 end

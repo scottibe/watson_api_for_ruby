@@ -37,7 +37,10 @@ class ToneApiCaller
     data["document_tone"]["tone_categories"][2]["tones"].each do |tone|
       score_array += [tone["tone_name"].gsub(" ", "_").downcase.to_sym, tone["score"]]
     end  
-    score_hash = Hash[*score_array]   
+    hash = Hash[*score_array]   
+    hash = hash.each_pair do |k, v|
+      hash[k] = (v * 100).to_i
+    end  
   end
 
 end
