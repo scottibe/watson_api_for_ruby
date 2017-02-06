@@ -2,12 +2,14 @@
 
 This is RubyWrapperWatson. A simple Ruby wrapper for IBM's Watson computer system APIs. Specifically, this gives access to the Personality Insights API and the Tone Analyzer API. 
 
-RubyWrapperWatson takes input in two forms. The first is plain text, either in a string or read from a file. The second is a Twitter usoername. If given a username it will analyze the text from the tweets of that user's timeline and return an object with the personality or tone analysis scores. 
+RubyWrapperWatson takes input in two forms. The first is plain text, either in a string or read from a file. The second is a Twitter username. If given a username it will analyze the text from the tweets of that user's timeline and return an object with the personality or tone analysis scores. 
 
 ## Usage
 
 First, you will need to obtain Watson credentials from: 
 "https://console.ng.bluemix.net/dashboard/apps/"
+
+You must enter the credentials in the .env file in the root directory and match them up with the variables in the constructor methods in PersonalityApiCaller and ToneApiCaller.
 
 Descriptions for what all the scores mean for the Personality Insights can be found in hash form in the description.rb file  
 
@@ -19,7 +21,7 @@ to use this gem.
 
 To get a personality analysis with plain text
 ```
-analysis = PersonalityAnalysis.create_analysis(username, password, 'input_text')
+analysis = PersonalityAnalysis.create_analysis('input_text')
 ```
 This will return an instance of the PersonalityAnalysis class with a score for each of the 22 personality characteristics plus the word count.
 
