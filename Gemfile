@@ -8,5 +8,6 @@ gem 'rest-client'
 gem 'dotenv'
 gem 'twitter'
 gem 'tweetstream'
+gem 'figaro'
 
 

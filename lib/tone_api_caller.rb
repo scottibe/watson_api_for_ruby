@@ -10,8 +10,8 @@ class ToneApiCaller
 
   def initialize(input)
     @url = "https://gateway.watsonplatform.net/tone-analyzer/api"
-    @username = ENV["APIUSER"]
-    @password = ENV["APIKEY"]
+    @username = ENV['USERNAME']
+    @password = ENV['PASSWORD']
     @input = input
   end 
 
@@ -28,6 +28,7 @@ class ToneApiCaller
   def scores_to_hash  
     score_array = []
     data = get_response
+    begin
     data["document_tone"]["tone_categories"][0]["tones"].each do |tone|
       score_array += [tone["tone_name"].downcase.to_sym, tone["score"]]
     end   
@@ -37,6 +38,8 @@ class ToneApiCaller
     data["document_tone"]["tone_categories"][2]["tones"].each do |tone|
       score_array += [tone["tone_name"].gsub(" ", "_").downcase.to_sym, tone["score"]]
     end  
+  rescue NoMethodError
+  end  
     hash = Hash[*score_array]   
     hash = hash.each_pair do |k, v|
       hash[k] = (v * 100).to_i

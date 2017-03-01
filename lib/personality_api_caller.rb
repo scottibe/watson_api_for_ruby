@@ -10,8 +10,8 @@ class PersonalityApiCaller
 
   def initialize(input)
     @url = "https://gateway.watsonplatform.net/personality-insights/api"
-    @username = ENV['USERNAME']
-    @password = ENV['PASSWORD']
+    @username = ENV['USER']
+    @password = ENV['PASS']
     @input = input
   end   
 
@@ -40,11 +40,14 @@ class PersonalityApiCaller
     data_object = JSON.parse(get_data, :object_class => OpenStruct)
     count = {:word_count => data_object.word_count}
     array += [data_object.personality, data_object.needs, data_object.values]
+    begin
     array.each do |result|
       result.each do |score|
         score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym, score.percentile]
       end 
     end 
+  rescue NoMethodError
+  end  
     hash = Hash[*score_array]
     hash = hash.each_pair do |k, v|
       hash[k] = (v * 100).to_i
