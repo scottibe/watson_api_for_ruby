@@ -43,7 +43,7 @@ class PersonalityApiCaller
     begin
     array.each do |result|
       result.each do |score|
-        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym, score.percentile]
+        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym]
       end 
     end 
   rescue NoMethodError
