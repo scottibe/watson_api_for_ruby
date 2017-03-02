@@ -10,8 +10,8 @@ class PersonalityApiCaller
 
   def initialize(input)
     @url = "https://gateway.watsonplatform.net/personality-insights/api"
-    @username = ENV['USER']
-    @password = ENV['PASS']
+    @username = "2547e262-d9ee-4ca2-8ef6-a4982a57a050"
+    @password = "SCaQGN5855Zq"
     @input = input
   end   
 
@@ -43,11 +43,11 @@ class PersonalityApiCaller
     begin
     array.each do |result|
       result.each do |score|
-        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym]
+        score_array += [score.name.gsub(" ", "_").gsub("-", "_").downcase.to_sym, score.percentile]
       end 
     end 
-  rescue NoMethodError
-  end  
+    rescue
+    end  
     hash = Hash[*score_array]
     hash = hash.each_pair do |k, v|
       hash[k] = (v * 100).to_i
